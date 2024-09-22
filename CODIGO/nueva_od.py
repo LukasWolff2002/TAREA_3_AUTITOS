@@ -1,13 +1,13 @@
-from obtencion_datos import O_2024, D_2024
+from obtencion_datos import O_2024, D_2024, O, D
 from funciones import suma_filas, suma_columnas
 import sys
 from cij import distancias
 import pandas as pd
-epsilon = sys.float_info.epsilon
 import numpy as np
 import pandas as pd
 
 np.set_printoptions(suppress=True, formatter={'float_kind':'{:0.0f}'.format})
+
 def matriz_t (k):
     
     betha = 0.2696
@@ -44,7 +44,7 @@ def matriz_t (k):
                 suma += 0
             else:
                 suma += (O_2024[j]*D_2024[j])/(distancias[i][j]**2)
-    alpha = numero_viajes/suma
+    alpha = numero_viajes/(suma)
 
     print(f'{alpha=}')
 
@@ -53,11 +53,13 @@ def matriz_t (k):
         for j in range(len(O_2024)):
             if distancias[i][j] == '∞':
                 distancias[i][j] = 0
-            T_final[i][j] = alpha * O_2024[i] * D_2024[j] * (distancias[i][j]**k) * (epsilon ** (-betha*distancias[i][j]))
+            T_final[i][j] = alpha * O[i] * D[j] * ((distancias[i][j])**k) * np.exp (-betha*distancias[i][j])
     
     T_final = np.rint(T_final)
     return T_final
 
-#Calcular la matriz t con k = 0.0001
-T = matriz_t(10)
-print(T)
+T = matriz_t(0.5)
+
+
+
+

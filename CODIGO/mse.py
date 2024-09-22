@@ -1,6 +1,7 @@
 import numpy as np
 from obtencion_datos import t
-from nueva_od import matriz_t
+from nueva_od import T
+from obtencion_datos import O_2024 , D_2024
 def mean_squared_error(matrix1, matrix2):
     print('hola')
     """
@@ -30,7 +31,7 @@ def mean_squared_error(matrix1, matrix2):
 # Calcular el MSE
 
 matriz1 = t
-matriz2 = matriz_t(1)
+matriz2 = T
 
 mse = mean_squared_error(matriz1, matriz2)
 print(f"El MSE entre las dos matrices es: {mse}")
