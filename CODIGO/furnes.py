@@ -4,7 +4,7 @@ from funciones import suma_filas, suma_columnas
 
 np.set_printoptions(suppress=True, formatter={'float_kind':'{:0.0f}'.format})
 t = np.matrix(t)
-print(f'{t=}\n{O_2024=}\n{D_2024=}')
+
 
 def furness(t, O, D, tol=1e-6, maxit=10000):
     k = len(O)
@@ -41,10 +41,4 @@ def furness(t, O, D, tol=1e-6, maxit=10000):
     t_rounded = np.rint(t)
     return t_rounded
 
-t = (furness(t , O_2024 , D_2024))
-
-print(t)
-
-print(suma_columnas(t))
-print(suma_filas(t))
 

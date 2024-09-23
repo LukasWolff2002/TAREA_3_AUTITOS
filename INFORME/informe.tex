@@ -167,6 +167,89 @@
 \setcounter{page}{1}
 %----------------------------------------------------------------------------------------
 
+\section{Ressultados}
+
+\subsection{Furness Matriz OD 2024}
+
+Se aplico el metodo furness a la matriz OD del 2012, donde originalmente se tenian los siguientes datos:
+{\footnotesize
+  \[
+  \begin{array}{cc}
+  \text{$O_{2012}$} & \\
+  \left[ \begin{array}{c}
+  1960 \\
+  6166 \\
+  5150 \\
+  25 \\
+  2371 \\
+  1 \\
+  1387 \\
+  1016 \\
+  8150 \\
+  8322
+  \end{array} \right] &
+  \left[ \begin{array}{cccccccccc}
+  0 & 284 & 0 & 0 & 0 & 0 & 811 & 98 & 121 & 645 \\
+  0 & 845 & 0 & 0 & 171 & 0 & 1622 & 836 & 1029 & 1663 \\
+  0 & 0 & 107 & 0 & 0 & 0 & 0 & 0 & 1563 & 3480 \\
+  0 & 0 & 0 & 0 & 0 & 0 & 0 & 25 & 0 & 0 \\
+  0 & 1202 & 0 & 0 & 0 & 108 & 193 & 0 & 529 & 338 \\
+  0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+  709 & 369 & 39 & 126 & 37 & 107 & 0 & 0 & 0 & 0 \\
+  0 & 894 & 0 & 25 & 97 & 0 & 0 & 0 & 0 & 0 \\
+  714 & 3514 & 1457 & 1208 & 728 & 529 & 0 & 0 & 0 & 0 \\
+  821 & 3671 & 1886 & 949 & 344 & 650 & 0 & 0 & 0 & 0
+  \end{array} \right]
+  \end{array}
+  \]
+  \[
+  \text{$D_{ 2012}$} \quad \left[ \begin{array}{cccccccccc}
+    2245 & 10780 & 3488 & 2307 & 1377 & 1395 & 2626 & 959 & 3243 & 6126
+  \end{array} \right]
+  \]
+}
+
+Y se obtuvieron los siguientes resultados:
+
+{\footnotesize
+  \[
+  \begin{array}{cc}
+  \text{$O_{2024}$} & \\
+  \left[ \begin{array}{c}
+    8200 \\
+    15991 \\
+    7029 \\
+    2337 \\
+    4690 \\
+    0 \\
+    2611 \\
+    953 \\
+    3224 \\
+    6090
+  \end{array} \right] &
+  \left[ \begin{array}{cccccccccc}
+    0 & 346 & 0 & 0 & 0 & 0 & 1503 & 0 & 1685 & 4666 \\
+    0 & 528 & 0 & 0 & 389 & 0 & 1543 & 0 & 7356 & 6175 \\
+    0 & 0 & 67 & 0 & 0 & 0 & 0 & 0 & 3228 & 3734 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 2337 & 0 & 0 \\
+    0 & 590 & 0 & 0 & 0 & 0 & 144 & 0 & 2970 & 986 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    1244 & 787 & 287 & 5 & 288 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 683 & 0 & 0 & 270 & 0 & 0 & 0 & 0 & 0 \\
+    160 & 960 & 1373 & 6 & 725 & 0 & 0 & 0 & 0 & 0 \\
+    339 & 1844 & 3268 & 9 & 630 & 0 & 0 & 0 & 0 & 0
+  \end{array} \right]
+  \end{array}
+  \]
+  \[
+  \text{$D_{ 2024}$} \quad \left[ \begin{array}{cccccccccc}
+    1743 & 5738 & 4995 & 20 & 2302 & 0 & 3190 & 2337 & 15239 & 15561
+  \end{array} \right]
+  \]
+}
+
+\textbf{Nota:} Se puede observar una ligera discrepancia en los datos, respecto a los vectores 2024 solicitados inicialmente, lo cual ocurre debido a que el metodo furnes no puede ser aplicado correctamente ya que el redondeo de datos de la matriz original ocaciona que algunons vectores no concuerdan al 100\%, vease el caso $O_{2012}$ = 1.
+
 
 %\newpage
 %\bibliography{referencias}  % Nombre del archivo .bib
