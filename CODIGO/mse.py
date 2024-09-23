@@ -12,7 +12,7 @@ def mean_squared_error(matrix1, matrix2):
         raise ValueError("Las matrices deben tener la misma forma")
     
     # Calcular el MSE
-    mse = (np.mean((matrix1 - matrix2) ** 2))/100
+    mse = (np.mean((matrix1 - matrix2) ** 2))
     return mse
 
 
@@ -40,7 +40,9 @@ print(f"Error cuadrático medio: {error_0}")
 #Donde la matriz final es
 T = (matriz_t(k_0, O, D))
 
-error_1 = mean_squared_error(t, matriz_t(3, O, D))
+print(T)
+
+error_1 = mean_squared_error(t, matriz_t(0.001, O, D))
 print(f"Error cuadrático medio con k = 3: {error_1}")
 
 #Luego le aplico furnes a esta matriz
