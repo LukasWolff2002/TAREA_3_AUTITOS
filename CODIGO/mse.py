@@ -40,6 +40,9 @@ print(f"Error cuadrático medio: {error_0}")
 #Donde la matriz final es
 T = (matriz_t(k_0, O, D))
 
+error_1 = mean_squared_error(t, matriz_t(3, O, D))
+print(f"Error cuadrático medio con k = 3: {error_1}")
+
 #Luego le aplico furnes a esta matriz
 
 

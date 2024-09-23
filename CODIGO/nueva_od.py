@@ -18,7 +18,7 @@ def matriz_t (k, O, D):
             if distancias[i][j] == '∞':
                 suma += 0
             else:
-                suma += (O[j]*D[j])* ((distancias[i][j])**(-k)) * np.exp (-betha*distancias[i][j])
+                suma += (O[i]*D[j])* ((distancias[i][j])**(-k)) * np.exp (-betha*distancias[i][j])
     alpha = numero_viajes/(suma)
 
     T_final = [[0 for _ in range(10)] for _ in range(10)]
