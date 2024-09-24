@@ -6,9 +6,11 @@ archivo = 'OD.xlsx'
 # Usa read_excel para leer el rango específico
 # Asegúrate de que la ruta del archivo sea correcta y accesible
 df = pd.read_excel(archivo, usecols='B:K', skiprows=0, nrows=10)
-
+print(df)
 # Convertir el DataFrame a una lista de listas
 t = df.values.tolist()
+
+print(t)
 
 
 #Con esto tengo los vecotres reales de la matriz OD
@@ -27,6 +29,7 @@ df = pd.read_excel(archivo, usecols="B:K")
 O_2024 = df.iloc[0].tolist()
 D_2024 = df.iloc[1].tolist()
 
-
+print(O_2024)
+print(D_2024)
 
 

@@ -166,90 +166,284 @@
 %ACÁ EMPIEZA EL INFORME
 \setcounter{page}{1}
 %----------------------------------------------------------------------------------------
+\section{Introducción}
 
-\section{Ressultados}
+En el estudio de un modelo de transporte, la distribución de los flujos tiene una importancia vital, ya que permite adaptar los modelos conocidos a otros períodos de tiempo, utilizando como insumos datos como vectores origen-destino o costos. De esta manera, se puede generar una actualización del modelo mucho más eficiente, ya que no requiere rehacer la encuesta de transporte, minimizando así tiempo, recursos y errores.
+\\ \\
+El presente informe tiene como objetivo principal actualizar una matriz OD del año 2012, perteneciente a la región de San Carlos de Apoquindo, al año 2024, utilizando como insumos una matriz de costos y los vectores OD esperados para 2024.
+\\ \\
+Asimismo, se espera dar un correcto análisis y explicación a los distintos resultados obtenidos por las diferentes matrices, lo cual será expuesto en la sección de análisis de resultados.
 
-\subsection{Furness Matriz OD 2024}
+\section{Contenido}
+\subsection{Generación de Matriz Origen-Destino a partir de Matriz de Costos}
 
-Se aplico el metodo furness a la matriz OD del 2012, donde originalmente se tenian los siguientes datos:
-{\footnotesize
-  \[
-  \begin{array}{cc}
-  \text{$O_{2012}$} & \\
-  \left[ \begin{array}{c}
-  1960 \\
-  6166 \\
-  5150 \\
-  25 \\
-  2371 \\
-  1 \\
-  1387 \\
-  1016 \\
-  8150 \\
-  8322
-  \end{array} \right] &
-  \left[ \begin{array}{cccccccccc}
-  0 & 284 & 0 & 0 & 0 & 0 & 811 & 98 & 121 & 645 \\
-  0 & 845 & 0 & 0 & 171 & 0 & 1622 & 836 & 1029 & 1663 \\
-  0 & 0 & 107 & 0 & 0 & 0 & 0 & 0 & 1563 & 3480 \\
-  0 & 0 & 0 & 0 & 0 & 0 & 0 & 25 & 0 & 0 \\
-  0 & 1202 & 0 & 0 & 0 & 108 & 193 & 0 & 529 & 338 \\
-  0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-  709 & 369 & 39 & 126 & 37 & 107 & 0 & 0 & 0 & 0 \\
-  0 & 894 & 0 & 25 & 97 & 0 & 0 & 0 & 0 & 0 \\
-  714 & 3514 & 1457 & 1208 & 728 & 529 & 0 & 0 & 0 & 0 \\
-  821 & 3671 & 1886 & 949 & 344 & 650 & 0 & 0 & 0 & 0
-  \end{array} \right]
-  \end{array}
-  \]
-  \[
-  \text{$D_{ 2012}$} \quad \left[ \begin{array}{cccccccccc}
-    2245 & 10780 & 3488 & 2307 & 1377 & 1395 & 2626 & 959 & 3243 & 6126
-  \end{array} \right]
-  \]
-}
+Para generar la matriz origen-destino a partir de la matriz de costos, se utilizó la siguiente fórmula:
 
-Y se obtuvieron los siguientes resultados:
+\begin{equation}
+  T_{ij} = \alpha \cdot O_i \cdot D_j \cdot e^{-\beta \cdot C_{ij}} \cdot C_{ij}^{-K}
+\end{equation}
 
-{\footnotesize
-  \[
-  \begin{array}{cc}
-  \text{$O_{2024}$} & \\
-  \left[ \begin{array}{c}
-    8200 \\
-    15991 \\
-    7029 \\
-    2337 \\
-    4690 \\
-    0 \\
-    2611 \\
-    953 \\
-    3224 \\
-    6090
-  \end{array} \right] &
-  \left[ \begin{array}{cccccccccc}
-    0 & 346 & 0 & 0 & 0 & 0 & 1503 & 0 & 1685 & 4666 \\
-    0 & 528 & 0 & 0 & 389 & 0 & 1543 & 0 & 7356 & 6175 \\
-    0 & 0 & 67 & 0 & 0 & 0 & 0 & 0 & 3228 & 3734 \\
-    0 & 0 & 0 & 0 & 0 & 0 & 0 & 2337 & 0 & 0 \\
-    0 & 590 & 0 & 0 & 0 & 0 & 144 & 0 & 2970 & 986 \\
-    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-    1244 & 787 & 287 & 5 & 288 & 0 & 0 & 0 & 0 & 0 \\
-    0 & 683 & 0 & 0 & 270 & 0 & 0 & 0 & 0 & 0 \\
-    160 & 960 & 1373 & 6 & 725 & 0 & 0 & 0 & 0 & 0 \\
-    339 & 1844 & 3268 & 9 & 630 & 0 & 0 & 0 & 0 & 0
-  \end{array} \right]
-  \end{array}
-  \]
-  \[
-  \text{$D_{ 2024}$} \quad \left[ \begin{array}{cccccccccc}
-    1743 & 5738 & 4995 & 20 & 2302 & 0 & 3190 & 2337 & 15239 & 15561
-  \end{array} \right]
-  \]
-}
+Donde \(\alpha\) se define como:
 
-\textbf{Nota:} Se puede observar una ligera discrepancia en los datos, respecto a los vectores 2024 solicitados inicialmente, lo cual ocurre debido a que el metodo furnes no puede ser aplicado correctamente ya que el redondeo de datos de la matriz original ocaciona que algunons vectores no concuerdan al 100\%, vease el caso $O_{2012}$ = 1.
+\begin{equation}
+  \alpha = \frac{T}{\sum_{i}^{n} \sum{j}^{n} O_i \cdot D_j \cdot e^{-\beta \cdot C_{ij}} \cdot C_{ij}^{-K}}
+\end{equation}
 
+Se utilizó un valor de \(\beta = 0.2696\).
+\\ \\
+Además, para calcular el error cuadrático medio, se utilizó el siguiente código a partir de la librería numpy:
+
+\begin{lstlisting}[language=Python]
+  import numpy as np
+
+  def error_cuadratico_medio(m1, m2):
+    return np.mean((m1 - m2) ** 2)
+\end{lstlisting}
+
+\newpage
+\section{Desarrollo}
+
+A continuación, se presentará el desarrollo paso a paso requerido por el enunciado.
+
+\subsection{Matriz OD 2012}
+
+La matriz original corresponde a los siguientes datos:
+
+\begin{table}[H]
+  \centering
+  \footnotesize
+  \begin{tabular}{c|cccccccccc}    
+  \textbf{Zona O\textbackslash D} & \textbf{301} & \textbf{302} & \textbf{308} & \textbf{314} & \textbf{316} & \textbf{318} & \textbf{E1} & \textbf{E2} & \textbf{E3} & \textbf{E4} \\ \hline
+  \textbf{301} & 0 & 284 & 0 & 0 & 0 & 0 & 811 & 98 & 121 & 645 \\ 
+  \textbf{302} & 0 & 845 & 0 & 0 & 171 & 0 & 1622 & 836 & 1029 & 1663 \\ 
+  \textbf{308} & 0 & 0 & 107 & 0 & 0 & 0 & 0 & 0 & 1563 & 3480 \\ 
+  \textbf{314} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 25 & 0 & 0 \\ 
+  \textbf{316} & 0 & 1202 & 0 & 0 & 0 & 108 & 193 & 0 & 529 & 338 \\ 
+  \textbf{318} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 
+  \textbf{E1} & 709 & 369 & 39 & 126 & 37 & 107 & 0 & 0 & 0 & 0 \\ 
+  \textbf{E2} & 0 & 894 & 0 & 25 & 97 & 0 & 0 & 0 & 0 & 0 \\ 
+  \textbf{E3} & 714 & 3514 & 1457 & 1208 & 728 & 529 & 0 & 0 & 0 & 0 \\ 
+  \textbf{E4} & 821 & 3671 & 1886 & 949 & 344 & 650 & 0 & 0 & 0 & 0 \\ 
+  \end{tabular}
+  \caption{Matriz OD 2012}
+  \label{table:M_2012}
+\end{table}
+
+Donde los vectores correspondientes son:
+
+\begin{table}[H]
+  \centering
+  \footnotesize
+  \begin{tabular}{c|cccccccccc}    
+  \textbf{} & \textbf{301} & \textbf{302} & \textbf{308} & \textbf{314} & \textbf{316} & \textbf{318} & \textbf{E1} & \textbf{E2} & \textbf{E3} & \textbf{E4} \\ \hline
+  \textbf{O} & 1959 & 6166 & 5150 & 25 & 2370 & 0 & 1387 & 1016 & 8150 & 8321 \\ 
+  \textbf{D} & 2244 & 10779 & 3489 & 2308 & 1377 & 1394 & 2626 & 959 & 3242 & 6126 \\ 
+  \end{tabular}
+  \caption{Vectores Matriz OD 2012}
+  \label{table:data_matrix}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.35\linewidth]{san_carlos.png}
+  \caption{Zonas de San Carlos de Apoquindo}
+  \label{fig:zonas}
+\end{figure}
+
+\subsection{Generación de Matriz OD aplicando Costos}
+
+En primera instancia, se utilizó un valor de \(K = 1\) para generar la matriz OD:
+
+\begin{table}[H]
+  \centering
+  \footnotesize
+  \begin{tabular}{c|cccccccccc}    
+  \textbf{Zona O\textbackslash D} & \textbf{301} & \textbf{302} & \textbf{308} & \textbf{314} & \textbf{316} & \textbf{318} & \textbf{E1} & \textbf{E2} & \textbf{E3} & \textbf{E4} \\ \hline
+  \textbf{301} & 1904 & 1718 & 733 & 156 & 166 & 714 & 10 & 23 & 16 & 2 \\ 
+  \textbf{302} & 1126 & 8833 & 960 & 873 & 886 & 1131 & 36 & 46 & 91 & 12 \\ 
+  \textbf{308} & 1239 & 2477 & 2543 & 999 & 596 & 413 & 33 & 30 & 134 & 15 \\ 
+  \textbf{314} & 2 & 17 & 7 & 18 & 5 & 1 & 0 & 0 & 0 & 0 \\ 
+  \textbf{316} & 326 & 2665 & 695 & 774 & 626 & 209 & 25 & 27 & 35 & 6 \\ 
+  \textbf{318} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 
+  \textbf{E1} & 6 & 33 & 12 & 17 & 8 & 4 & 0 & 0 & 0 & 0 \\ 
+  \textbf{E2} & 27 & 85 & 21 & 23 & 17 & 12 & 0 & 0 & 0 & 0 \\ 
+  \textbf{E3} & 47 & 402 & 228 & 110 & 51 & 28 & 0 & 0 & 0 & 0 \\ 
+  \textbf{E4} & 4 & 28 & 14 & 11 & 5 & 3 & 0 & 0 & 0 & 0 \\ 
+  \end{tabular}
+  \caption{Matriz OD con K = 1}
+  \label{table:M_K1}
+\end{table}
+
+Donde los vectores correspondientes son:
+
+\begin{table}[H]
+  \centering
+  \footnotesize
+  \begin{tabular}{c|cccccccccc}    
+  \textbf{} & \textbf{301} & \textbf{302} & \textbf{308} & \textbf{314} & \textbf{316} & \textbf{318} & \textbf{E1} & \textbf{E2} & \textbf{E3} & \textbf{E4} \\ \hline
+  \textbf{O} & 5442.0 & 13994.0 & 8479.0 & 50.0 & 5388.0 & 0.0 & 80.0 & 185.0 & 866.0 & 65.0 \\ 
+  \textbf{D} & 4681.0 & 16258.0 & 5213.0 & 2981.0 & 2360.0 & 2515.0 & 104.0 & 126.0 & 276.0 & 35.0 \\ 
+  \end{tabular}
+  \caption{Vectores Matriz OD con K = 1}
+  \label{table:data_matrix}
+\end{table}
+
+El error observado es de 1501465.33.
+
+\subsubsection{Calibración de K}
+
+Finalmente, se determinó que el error se minimizaba con un valor de \(K = -2.339\), aun así, siguiendo lo estipulado por la pauta, se utilizó el menor valor posible mayor a 0, es decir, 0.001, lo cual da la siguiente matriz:
+
+\begin{table}[H]
+  \centering
+  \footnotesize
+  \begin{tabular}{c|cccccccccc}    
+  \textbf{Zona O\textbackslash D} & \textbf{301} & \textbf{302} & \textbf{308} & \textbf{314} & \textbf{316} & \textbf{318} & \textbf{E1} & \textbf{E2} & \textbf{E3} & \textbf{E4} \\ \hline
+  \textbf{301} & 512 & 1705 & 602 & 260 & 197 & 295 & 50 & 62 & 78 & 21 \\ 
+  \textbf{302} & 1117 & 6211 & 1385 & 1040 & 742 & 801 & 179 & 150 & 362 & 93 \\ 
+  \textbf{308} & 1018 & 3573 & 1707 & 970 & 579 & 512 & 158 & 107 & 434 & 108 \\ 
+  \textbf{314} & 3 & 20 & 7 & 6 & 3 & 2 & 1 & 1 & 2 & 1 \\ 
+  \textbf{316} & 389 & 2231 & 675 & 520 & 333 & 244 & 103 & 75 & 138 & 44 \\ 
+  \textbf{318} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 
+  \textbf{E1} & 30 & 165 & 56 & 64 & 31 & 18 & 0 & 0 & 0 & 0 \\ 
+  \textbf{E2} & 76 & 279 & 77 & 70 & 46 & 38 & 0 & 0 & 0 & 0 \\ 
+  \textbf{E3} & 223 & 1591 & 739 & 399 & 201 & 133 & 0 & 0 & 0 & 0 \\ 
+  \textbf{E4} & 33 & 221 & 100 & 74 & 35 & 22 & 0 & 0 & 0 & 0 \\ 
+  \end{tabular}
+  \caption{Matriz OD con K calibrado a 0.001}
+  \label{table:M_K2}
+\end{table}
+
+Donde los vectores correspondientes son: 
+
+\begin{table}[H]
+  \centering
+  \footnotesize
+  \begin{tabular}{c|cccccccccc}    
+  \textbf{} & \textbf{301} & \textbf{302} & \textbf{308} & \textbf{314} & \textbf{316} & \textbf{318} & \textbf{E1} & \textbf{E2} & \textbf{E3} & \textbf{E4} \\ \hline
+  \textbf{O} & 3782.0 & 12080.0 & 9166.0 & 46.0 & 4752.0 & 0.0 & 364.0 & 586.0 & 3286.0 & 485.0 \\ 
+  \textbf{D} & 3401.0 & 15996.0 & 5348.0 & 3403.0 & 2167.0 & 2065.0 & 491.0 & 395.0 & 1014.0 & 267.0 \\ 
+  \end{tabular}
+  \caption{Vectores Matriz OD con K calibrado a 0.001}
+  \label{table:data_matrix}
+\end{table}
+
+El error observado es de 996057.27.
+
+\subsection{Aplicación del Método Furness en la Matriz OD con K Optimizado}
+
+Posteriormente, se aplicó el método de Furness a esta última matriz OD, según los vectores entregados para 2024:
+
+\begin{table}[H]
+  \centering
+  \footnotesize
+  \begin{tabular}{c|cccccccccc}    
+  \textbf{} & \textbf{301} & \textbf{302} & \textbf{308} & \textbf{314} & \textbf{316} & \textbf{318} & \textbf{E1} & \textbf{E2} & \textbf{E3} & \textbf{E4} \\ \hline
+  \textbf{O} & 7737 & 15089 & 6632 & 2308 & 4425 & 2784 & 2464 & 899 & 3042 & 5746 \\ 
+  \textbf{D} & 1744 & 5736 & 4995 & 20 & 2301 & 1 & 3191 & 2337 & 15240 & 15561 \\ 
+  \end{tabular}
+  \caption{Vectores 2024}
+  \label{table:V_2024}
+\end{table}
+
+Obteniendo los siguientes resultados:
+
+\begin{table}[H]
+  \centering
+  \footnotesize
+  \begin{tabular}{c|cccccccccc}    
+  \textbf{Zona O\textbackslash D} & \textbf{301} & \textbf{302} & \textbf{308} & \textbf{314} & \textbf{316} & \textbf{318} & \textbf{E1} & \textbf{E2} & \textbf{E3} & \textbf{E4} \\ \hline
+  \textbf{301} & 120 & 225 & 172 & 0 & 68 & 0 & 775 & 779 & 3029 & 3013 \\ 
+  \textbf{302} & 123 & 387 & 187 & 1 & 121 & 0 & 1310 & 890 & 6638 & 6301 \\ 
+  \textbf{308} & 44 & 88 & 91 & 0 & 38 & 0 & 457 & 251 & 3149 & 2895 \\ 
+  \textbf{314} & 7 & 25 & 19 & 0 & 10 & 0 & 148 & 120 & 742 & 1370 \\ 
+  \textbf{316} & 29 & 92 & 61 & 0 & 36 & 0 & 501 & 296 & 1683 & 1982 \\ 
+  \textbf{318} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 
+  \textbf{E1} & 328 & 1019 & 750 & 5 & 503 & 0 & 0 & 0 & 0 & 0 \\ 
+  \textbf{E2} & 182 & 378 & 226 & 1 & 164 & 0 & 0 & 0 & 0 & 0 \\ 
+  \textbf{E3} & 308 & 1242 & 1251 & 4 & 412 & 0 & 0 & 0 & 0 & 0 \\ 
+  \textbf{E4} & 603 & 2279 & 2237 & 9 & 948 & 0 & 0 & 0 & 0 & 0 \\ 
+  \end{tabular}
+  \caption{Matriz OD 2024}
+  \label{table:M_2024}
+\end{table}
+
+Donde los vectores correspondientes son:
+
+\begin{table}[H]
+  \centering
+  \footnotesize
+  \begin{tabular}{c|cccccccccc}    
+  \textbf{} & \textbf{301} & \textbf{302} & \textbf{308} & \textbf{314} & \textbf{316} & \textbf{318} & \textbf{E1} & \textbf{E2} & \textbf{E3} & \textbf{E4} \\ \hline
+  \textbf{O} & 8181.0 & 15958.0 & 7013.0 & 2441.0 & 4680.0 & 0.0 & 2605.0 & 951.0 & 3217.0 & 6076.0 \\ 
+  \textbf{D} & 1744.0 & 5735.0 & 4994.0 & 20.0 & 2300.0 & 0.0 & 3191.0 & 2336.0 & 15241.0 & 15561.0 \\ 
+  \end{tabular}
+  \caption{Vectores Matriz OD 2024}
+  \label{table:data_matrix}
+\end{table}
+
+\newpage
+\section{Análisis de Resultados}
+
+En primer lugar, y analizando los datos entregados por el enunciado, se puede apreciar que la matriz del año 2012 (\ref{table:M_2012}) presenta una mayor tasa de flujo hacia las zonas universitarias (D = 302), lo cual hace sentido y se corrobora con los datos obtenidos a partir de la primera tarea.
+\\ \\
+Posteriormente, se generó la matriz OD con K = 1 (\ref{table:M_K1}), donde se observa una correlación con los datos presentados por la matriz del 2012 (\ref{table:M_2012}). Luego se logró minimizar el error cuadrático medio, observando simplemente una disminución en la cantidad de viajes, manteniendo las proporciones.
+\\ \\
+Finalmente, la matriz OD del 2024 (\ref{table:M_2024}) presenta una proporción totalmente diferente en los datos, donde se observa una disminución del flujo hacia las zonas universitarias, y un aumento en las zonas residenciales. Esto se debe a que los vectores entregados como insumo por el enunciado (\ref{table:V_2024}) indicaban tal cambio en su propia estructura. Aunque esto no tiene una correlación con la realidad, fueron los datos presentados por el enunciado, por lo tanto, se generó el análisis respondiendo a la incógnita del porqué de tal cambio.
+
+\section{Conclusiones}
+
+En conclusión, se lograron todos los objetivos propuestos al inicio del presente informe, logrando así generar una matriz OD actualizada según una matriz de años anteriores y otro tipo de datos como insumo.
+\\ \\
+En particular, se logró generar un modelo que, a partir de cualquier matriz OD y una matriz de costos, pudiera generar la matriz OD correspondiente, optimizar el valor de K minimizando el error cuadrático medio, y finalmente, actualizar esa matriz al año correspondiente según los vectores OD de dicho período.
+\\ \\
+Finalmente, se logró dar una correcta explicación a todos los resultados obtenidos, de esta manera, considerando todo lo anteriormente expuesto, se puede considerar la práctica como exitosa.
+
+\newpage
+\section{Anexos}
+
+\subsection{Furness}
+
+La función utilizada de Furness fue una adaptación de la entregada por el enunciado:
+
+\begin{lstlisting}[language=Python]
+  def furness(t, O, D, tol=1e-6, maxit=10000):
+    k = len(O)
+    O = np.array(O)[:, np.newaxis].astype(float)
+    D = np.array(D).astype(float)
+    t = np.array(t)
+    ai = np.ones((k, 1))
+    bj = np.ones((1, k))
+    iters = 0
+    
+    # Añadir un pequeño valor epsilon para evitar divisiones por cero
+    epsilon = 1e-10
+
+    while iters < maxit:
+        # Calcular ai, evitando división por cero
+        t_sum1 = t.sum(axis=1)[:, np.newaxis] + epsilon  
+        # Suma de filas con epsilon
+        ai = O / t_sum1
+        
+        # Actualizar t con ai
+        t = t * np.dot(ai, np.ones((1, k)))
+        
+        # Calcular bj, evitando división por cero
+        t_sum0 = t.sum(axis=0) + epsilon  
+        # Suma de columnas con epsilon
+        bj = D / t_sum0
+        
+        # Actualizar t con bj
+        t = t * np.dot(np.ones((k, 1)), bj[np.newaxis, :])
+        
+        # Verificar convergencia
+        if np.max(abs(t_sum1.flatten() / O.flatten() - 1)) < tol:
+            break
+
+        iters += 1
+    t_rounded = np.rint(t)
+    return t_rounded
+\end{lstlisting}
 
 %\newpage
 %\bibliography{referencias}  % Nombre del archivo .bib
