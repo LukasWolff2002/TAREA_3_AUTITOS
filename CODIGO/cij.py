@@ -11,3 +11,4 @@ df = pd.read_excel(archivo, usecols='B:K', skiprows=0, nrows=10)
 
 distancias = df.values.tolist()
 
+print(distancias)

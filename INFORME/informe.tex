@@ -126,7 +126,7 @@
 %	SECCION DEL TITULO
 %----------------------------------------------------------------------------------------
 \begin{center}
-  \textbf{\LARGE Titulo} \\[0.5cm]
+  \textbf{\LARGE Distribución de Viajes} \\[0.5cm]
   \textbf{Felipe Vicencio y Lukas Wolff} \\
   Facultad de Ingenieria y Ciencias Aplicadas, Universidad de los Andes, Santiago de Chile.\\
   email: \href{mailto:lwolff@miuandes.cl}{lwolff@miuandes.cl}, \href{mailto:favicencio@miuandes.cl}{favicencio@miuandes.cl}
@@ -141,9 +141,13 @@
 \end{center}
 
 \begin{justify}
-  Hacer resumen aqui
+  In the study of a transportation model, the \textit{distribution} of flows is of vital importance, as it allows adapting known models to other time periods by using input data such as origin-destination vectors or costs. In this way, a much more efficient model update can be generated, as it does not require redoing the transportation survey, thereby minimizing time, resources, and errors.
+  \\ \\
+  The main objective of this report is to update an \textit{origin-destination matrix} from the year 2012 to 2024, using a \textit{cost matrix} and the expected \textit{origin-destination vectors} for that date as inputs. In this way, a model dependent on a K value was applied, where initially an \textit{origin-destination matrix} was generated with K=1 based on the costs using a \textit{gravitational model}, then the mean squared error was minimized by varying the K factor, and finally, the \textit{Furness method} was applied to obtain the desired final matrix.
+  \\ \\
+  In summary, all the proposed objectives were achieved, in addition to providing a correct explanation of the results obtained, thus meeting the expectations of the task.
   \\ \\ \\ \\ \\
-  \textbf{Key Words}: 
+  \textbf{Key Words}: Distribution; Gravitational Model; Furness Method; Origin-Destination Matrix; Cost Matrix; Origin-Destination Vectors.
 \end{justify}
 
 
@@ -401,7 +405,29 @@ Finalmente, se logró dar una correcta explicación a todos los resultados obten
 
 \newpage
 \section{Anexos}
+\subsection{Matriz de Costos Asociados}
 
+\begin{table}[H]
+  \centering
+  \footnotesize
+  \begin{tabular}{c|cccccccccc}    
+  \textbf{Zona O\textbackslash D} & \textbf{301} & \textbf{302} & \textbf{308} & \textbf{314} & \textbf{316} & \textbf{318} & \textbf{E1} & \textbf{E2} & \textbf{E3} & \textbf{E4} \\ \hline
+  \textbf{301} & 0.5 & 1.85 & 1.53 & 3.11 & 2.22 & 0.77 & 9.71 & 5.15 & 8.85 & 16.01 \\ 
+  \textbf{302} & 1.85 & 1.31 & 2.69 & 2.22 & 1.56 & 1.32 & 9.23 & 6.13 & 7.39 & 14.78 \\ 
+  \textbf{308} & 1.53 & 2.69 & 1.25 & 1.81 & 1.81 & 2.31 & 9.02 & 6.74 & 6.05 & 13.56 \\ 
+  \textbf{314} & 3.11 & 2.22 & 1.81 & 0.65 & 1.25 & 2.95 & 7.04 & 5.55 & 6.8 & 13.12 \\ 
+  \textbf{316} & 2.22 & 1.56 & 1.81 & 1.25 & 0.99 & 2.18 & 7.74 & 5.18 & 7.43 & 14.04 \\ 
+  \textbf{318} & 0.77 & 1.32 & 2.31 & 2.95 & 2.18 & 0.5 & 9.78 & 5.97 & 9.01 & 15.82 \\ 
+  \textbf{E1} & 9.71 & 9.23 & 9.02 & 7.04 & 7.74 & 9.78 & $\infty$ & $\infty$ & $\infty$ & $\infty$ \\ 
+  \textbf{E2} & 5.15 & 6.13 & 6.74 & 5.55 & 5.18 & 5.97 & $\infty$ & $\infty$ & $\infty$ & $\infty$ \\ 
+  \textbf{E3} & 8.85 & 7.39 & 6.05 & 6.8 & 7.43 & 9.01 & $\infty$ & $\infty$ & $\infty$ & $\infty$ \\ 
+  \textbf{E4} & 16.01 & 14.78 & 13.56 & 13.12 & 14.04 & 15.82 & $\infty$ & $\infty$ & $\infty$ & $\infty$ \\ 
+  \end{tabular}
+  \caption{Matriz OD 2012 Actualizada}
+  \label{table:M_2012_actualizada}
+\end{table}
+
+\newpage
 \subsection{Furness}
 
 La función utilizada de Furness fue una adaptación de la entregada por el enunciado:
