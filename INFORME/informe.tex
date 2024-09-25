@@ -393,7 +393,13 @@ En primer lugar, y analizando los datos entregados por el enunciado, se puede ap
 \\ \\
 Posteriormente, se generó la matriz OD con K = 1 (\ref{table:M_K1}), donde se observa una correlación con los datos presentados por la matriz del 2012 (\ref{table:M_2012}). Luego se logró minimizar el error cuadrático medio, observando simplemente una disminución en la cantidad de viajes, manteniendo las proporciones.
 \\ \\
-Finalmente, la matriz OD del 2024 (\ref{table:M_2024}) presenta una proporción totalmente diferente en los datos, donde se observa una disminución del flujo hacia las zonas universitarias, y un aumento en las zonas residenciales. Esto se debe a que los vectores entregados como insumo por el enunciado (\ref{table:V_2024}) indicaban tal cambio en su propia estructura. Aunque esto no tiene una correlación con la realidad, fueron los datos presentados por el enunciado, por lo tanto, se generó el análisis respondiendo a la incógnita del porqué de tal cambio.
+La matriz OD del 2024 (\ref{table:M_2024}) presenta una proporción totalmente diferente en los datos, 
+donde se observa una disminución del flujo hacia las zonas universitarias, y un aumento en las zonas residenciales. 
+Esto se debe a que los vectores entregados como insumo por el enunciado (\ref{table:V_2024}) 
+indicaban tal cambio en su propia estructura. Aunque esto no tiene una correlación con la realidad 
+(ya que se esperaria un aumento en las zonas universitarias), fueron los datos presentados por el enunciado, por lo tanto, se generó el análisis respondiendo a la incógnita del por qué de tal cambio.
+\\ \\
+Finalmente, respecto a la utilización del modelo gravitacional, se concluye que es mucho más eficiente al ser utilizado, ya que no requiere la realización de encuestas. Sin embargo, tiene limitaciones, ya que mantendrá la estructura de la matriz OD base entregada, tal y como se observa en la matriz con \(k = 0.001\) (\ref{table:M_K2}). Por lo tanto, es importante realizar una pequeña recopilación de datos sobre los vectores OD para que el modelo final sea más representativo de los cambios actuales.
 
 \section{Conclusiones}
 
@@ -405,6 +411,32 @@ Finalmente, se logró dar una correcta explicación a todos los resultados obten
 
 \newpage
 \section{Anexos}
+
+\subsection{Detalle Zonificación}
+
+Siguiendo la EOD, San Carlos de Apoquindo se divide en las zonas:
+
+\begin{itemize}
+    \item \textbf{301:} San Francisco de Asís/UDD
+    \item \textbf{302:} Resto de Av. San Ramón, Av. San Carlos de Apoquindo, Av. La Plaza
+    \item \textbf{308:} Carlos Peña Otaegui, El Remanso, Cerro Apoquindo (sur de Gral. Blanche)
+    \item \textbf{314:} Cerro Calán hasta Camino El Algarrobo
+    \item \textbf{316:} Desde Camino El Algarrobo hasta Av. Fco. Bulnes Correa
+    \item \textbf{318:} Estadio
+\end{itemize}
+
+Nótese que en la EOD 2012 se observa una prácticamente nula generación de viajes por parte del Estadio, y la zona del cerro Calán posiblemente esté subrepresentada.
+
+Además, se definió las zonas externas:
+
+\begin{itemize}
+    \item \textbf{E1:} Vitacura, Huechuraba, Estoril (zona 298)
+    \item \textbf{E2:} Lo Barnechea, San Damián (310), Quinchamalí (311)
+    \item \textbf{E3:} Resto de Las Condes y comunas Oriente/Sur Oriente
+    \item \textbf{E4:} Resto de Santiago y exterior.
+\end{itemize}
+
+
 \subsection{Matriz de Costos Asociados}
 
 \begin{table}[H]
